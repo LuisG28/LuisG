@@ -1,0 +1,14 @@
+<h1> Mi componente desde el archivo</h1>
+<br>
+<small>saludar.component.html</small>
+<input type="text">
+<br>
+<p>
+    Soy un párrafo
+</p>
+<div>
+    <input type="text" #nom  >
+    <br>
+    <button (click)="onButtonClick(nom.value); nom.value=''">Añadir Nombre</button>
+</div>
+<p (click)="onClick()">Hola {{nombre}}</p>

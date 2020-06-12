@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Proyecto2';
+  name = 'Martin';
+
+  onSaludar(mensaje){
+    console.log(mensaje);
+  }
 }
