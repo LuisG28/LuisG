@@ -1,0 +1,78 @@
+<div class="container">
+    <form [formGroup]="sigupForm" (ngSubmit)="enviar(sigupForm.value)">
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label >Nombre completo</label>
+                <input formControlName="nombre" type="text" class="form-control" maxlength="30" >
+                <div class="err" *ngIf="sigupForm.get('nombre').hasError('required') && sigupForm.get('nombre').touched">Este campo es necesario, por favor introdusca su nombre</div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Apellidos</label>
+                <input formControlName="apellidos" type="text" class="form-control" maxlength="30">
+                <div class="err"  *ngIf="sigupForm.get('apellidos').hasError('required') && sigupForm.get('apellidos').touched">
+                    *Este campo es requerido, por favor introdusca sus apellidos
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="exampleInputEmail1">Email address</label>
+                <input formControlName="email" type="email" class="form-control" maxlength="35">
+                <div class="err"  *ngIf="sigupForm.get('email').hasError('email') && sigupForm.get('email').hasError('required') && sigupForm.get('email').touched" >
+                    *Este campo es requerido, por favor introdusca su correo
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="exampleInputPassword1">Password</label>
+                <input formControlName="contrasenia" type="password" class="form-control" maxlength="30">
+                <div class="err"  *ngIf="sigupForm.get('contrasenia').hasError('required') && sigupForm.get('contrasenia').touched">
+                    *Este campo es requerido, por favor introdusca su contraseña
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="inputState">Estado</label>
+                <select formControlName="estado" class="form-control">
+                <option value="" selected>Selecciona</option>
+                <option value="Puebla" >Puebla</option>
+                <option value="Veracruz">Veracruz</option>
+                </select>
+                <div class="err"  *ngIf="sigupForm.get('estado').hasError('required') && sigupForm.get('estado').touched">
+                    *Este campo es requerido, por favor seleccione una opción
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <legend class="col-form-label col-sm-2 pt-0">Genero</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                        <input formControlName="sexo"  class="form-check-input" type="radio" value="H">
+                        <label  class="form-check-label" for="gridRadios1">
+                            Hombre
+                        </label>
+                        </div>
+                        <div class="form-check">
+                        <input formControlName="sexo" class="form-check-input" type="radio" value="M" >
+                        <label  class="form-check-label" for="gridRadios2">
+                            Mujer
+                        </label>
+                        </div>
+                        <div class="err"  *ngIf=" sigupForm.get('sexo').hasError('required')" >
+                            *Este campo es requerido, por favor seleccione una opción
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="form-row">
+            <p>
+                <label for="date"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Fecha de nacimiento</font></font></label>
+                <input formControlName="fecha" type="date" id="date">
+            </p>
+            <div class="err"  *ngIf=" sigupForm.get('fecha').hasError('required') && sigupForm.get('fecha').touched" class="err" >
+                *Este campo es requerido, por favor seleccione una fecha
+            </div>
+        </div>
+
+        <button [disabled]="sigupForm.invalid" type="submit" class="btn btn-primary"> Registrarse</button>
+    </form>
+</div>

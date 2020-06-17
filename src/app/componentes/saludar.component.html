@@ -1,14 +1,27 @@
-<h1> Mi componente desde el archivo</h1>
+<!--<h1> Mi componente desde el archivo</h1>
 <br>
 <small>saludar.component.html</small>
 <input type="text">
 <br>
 <p>
     Soy un párrafo
-</p>
-<div>
-    <input type="text" #nom  >
-    <br>
-    <button (click)="onButtonClick(nom.value); nom.value=''">Añadir Nombre</button>
+</p>-->
+<h1>Saludar component</h1>
+<!--<div *ngIf="nombres.length < 5">-->
+<div [ngSwitch]="nombres.length">
+    <div>
+        <input type="text" [(ngModel)]="nombreLista">
+        <br>
+        <button (click)="onButtonClick()"> Añadir nombre</button>
+    </div>
+    <div *ngSwitchCase="1">
+        <p>Uno</p>
+    </div>
+    <div *ngSwitchCase="3">
+        <p>Tres</p>
+    </div>
 </div>
-<p (click)="onClick()">Hola {{nombre}}</p>
+<p *ngFor="let item of nombres; index as i">
+    {{i}},- Hola {{item }}
+
+</p>
