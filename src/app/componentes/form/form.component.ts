@@ -14,7 +14,7 @@ export class FormComponent implements OnInit {
     this.sigupForm=this._builder.group({
       nombre: ['', Validators.required],//vacio es el primer valor
       apellidos:['', Validators.required],//validators.require para requerido
-      email:['', Validators.compose([Validators.email, Validators.required])],
+      email:['', Validators.compose([Validators.email, Validators.required])], //validators.compose para mas de dos
       contrasenia:['', Validators.required],
       estado:['', Validators.required],
       sexo:['',Validators.required],

@@ -9,4 +9,9 @@
     </p>
 </div>-->
 <!--<saludar-app #mivariable [nombre]="name" (saludar)="onSaludar($event)"></saludar-app>-->
-<app-form></app-form>
+<!--<app-form></app-form>-->
+<button type="submit" class="btn btn-primary" (click)="mostrar()">{{buttonName}}</button>
+<div *ngIf="show">
+    <app-add-app ></app-add-app>
+</div>
+
